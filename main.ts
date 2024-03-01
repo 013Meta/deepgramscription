@@ -1,8 +1,6 @@
 import { App, addIcon, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { createClient } from '@deepgram/sdk';
 
-// Remember to rename these classes and interfaces!
-
 interface MyPluginSettings {
 	mySetting: string;
 }
@@ -111,7 +109,7 @@ export default class Deepscribe extends Plugin {
             this.isRecording = false;
 
             const fileName = `Recording ${new Date().toISOString().replace(/[:.]/g, '')}.wav`;
-            const filePath = `/Audio/${fileName}`;
+            const filePath = `/${fileName}`;
             await this.app.vault.createBinary(filePath, await audioBlob.arrayBuffer());
 
             const noteName = `Note with ${fileName}`;
